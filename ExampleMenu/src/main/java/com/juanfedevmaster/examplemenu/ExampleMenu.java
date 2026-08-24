@@ -8,7 +8,9 @@ import java.util.Scanner;
 
 /**
  *
- * @author juanfe
+ * @author Sebastian Urrego Graciano
+ * @author Juan David Ortiz Diaz
+ * @author JUAN ESTEBAN BALLESTEROS SANCHEZ
  */
 public class ExampleMenu {
 
