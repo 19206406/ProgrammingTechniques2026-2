@@ -25,6 +25,7 @@ public class ExampleMenu {
         ArrayList<Student> students = new ArrayList<>();
         ArrayList<Subject> subjects = new ArrayList<>();
         int option = 0;
+        
 
         subjects.add(new Subject("Tec. de Programacion", "Sb1"));
         subjects.add(new Subject("Logica 2", "Sb2"));
@@ -43,7 +44,8 @@ public class ExampleMenu {
             System.out.println("7. Exit");
 
             Scanner scan = new Scanner(System.in);
-
+            Scanner continueKey = new Scanner (System.in);
+            
             int optionUser = scan.nextInt();
             scan.nextLine();
 
@@ -65,9 +67,13 @@ public class ExampleMenu {
                     student.setSubjects(new ArrayList<>());
 
                     students.add(student);
-
+                    
+                    System.out.println("Press enter to continue");
+                    continueKey.nextLine();
+                
                     break;
                 case 2:
+                    option = 2;
                     System.out.println("The total students are: " + students.size());
 
                     for (Student s : students) {
@@ -75,6 +81,10 @@ public class ExampleMenu {
                         System.out.println("The full name of the student is: " + s.getName() + " " + s.getLastName());
                         System.out.println("Career: " + s.getCareer());
                     }
+                    
+                    System.out.println("Press enter to continue");
+                    continueKey.nextLine();
+                
                     break;
                 case 3:
                     option = 3;
@@ -87,12 +97,19 @@ public class ExampleMenu {
                     subject.setCode(scan.nextLine().trim());
 
                     subjects.add(subject);
-
+                    
+                    System.out.println("Press enter to continue");
+                    continueKey.nextLine();
+                
                     break;
                 case 4:
+                    option = 4;
                     System.out.println("The total subjects are: " + subjects.size());
-
                     printSubjects(subjects);
+                    
+                    System.out.println("Press enter to continue");
+                    continueKey.nextLine();    
+                    
                     break;
                 case 5:
                     option = 5;
@@ -178,10 +195,10 @@ public class ExampleMenu {
                     break;
 
                 case 6:
-
+                    option  = 6;
                     System.out.println("Enter the student's name:");
                     String searchStudent = scan.nextLine();
-
+                    
                     for (Student s : students) {
                         if (s.getName().contains(searchStudent)) {
                             System.out.println("+++++++++++++");
@@ -194,6 +211,8 @@ public class ExampleMenu {
                                 System.out.println("student's registered subjects:");
                                 printSubjects(s.getSubjects());
                             }
+                        } else {
+                            System.out.println("Student not found");
                         }
                     }
 
