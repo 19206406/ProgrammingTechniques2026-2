@@ -42,9 +42,11 @@ public class ExampleMenu {
             System.out.println("5. Assign subjects to students");
             System.out.println("6. View a student's courses");
             System.out.println("7. Exit");
+            System.out.println("+++++++++++++");
+
 
             Scanner scan = new Scanner(System.in);
-            Scanner continueKey = new Scanner (System.in);
+            Scanner continueKey = new Scanner(System.in);
             
             int optionUser = scan.nextInt();
             scan.nextLine();
@@ -63,14 +65,12 @@ public class ExampleMenu {
                     System.out.println("Set the career of the new Student:");
                     student.setCareer(scan.nextLine().trim());
 
-                    // inicializar subjects para evitar nulos.
+                    // Initialize the “subjects” variables to avoid null values.
                     student.setSubjects(new ArrayList<>());
 
                     students.add(student);
-                    
-                    System.out.println("Press enter to continue");
-                    continueKey.nextLine();
-                
+
+                    pressEnter(continueKey);
                     break;
                 case 2:
                     option = 2;
@@ -81,10 +81,9 @@ public class ExampleMenu {
                         System.out.println("The full name of the student is: " + s.getName() + " " + s.getLastName());
                         System.out.println("Career: " + s.getCareer());
                     }
-                    
-                    System.out.println("Press enter to continue");
-                    continueKey.nextLine();
-                
+
+                    pressEnter(continueKey);
+
                     break;
                 case 3:
                     option = 3;
@@ -98,8 +97,7 @@ public class ExampleMenu {
 
                     subjects.add(subject);
                     
-                    System.out.println("Press enter to continue");
-                    continueKey.nextLine();
+                    pressEnter(continueKey);
                 
                     break;
                 case 4:
@@ -107,14 +105,27 @@ public class ExampleMenu {
                     System.out.println("The total subjects are: " + subjects.size());
                     printSubjects(subjects);
                     
-                    System.out.println("Press enter to continue");
-                    continueKey.nextLine();    
+                    pressEnter(continueKey);
                     
                     break;
                 case 5:
                     option = 5;
+
+                    if (students.isEmpty()) {
+                        System.out.println("There are no students to enroll in his subjects ");
+                        break;
+                    }
+
+                    if (subjects.isEmpty()) {
+                        System.out.println("There are no subjects to enroll in.");
+                        break;
+                    }
+
                     System.out.println("Enter the student's name:");
                     String name = scan.nextLine();
+
+                    System.out.println("Enter the student's lastname:");
+                    String lastName = scan.nextLine();
                     Student selectedStudent = null;
 
                     ArrayList<Subject> studentSubjects = new ArrayList<>();
@@ -122,19 +133,24 @@ public class ExampleMenu {
                     String code;
 
                     for (Student student1 : students) {
-                        if (student1.getName().contains(name)) {
+                        if (student1.getName().contains(name) && student1.getLastName().contains(lastName)) {
 
                             selectedStudent = student1;
 
+                            System.out.println("+++++++++++++");
+                            System.out.println("Student Found: " + selectedStudent.getName() + " " + selectedStudent.getLastName());
+                            System.out.println("+++++++++++++");
+
+
                             studentSubjects = student1.getSubjects();
 
-                            // Validación inicial cada vez que se ingresa a la opción
+                            // Initial validation each time the option is accessed
                             if (studentSubjects.size() >= 3) {
                                 System.out.println("A student may enroll in only three subjects");
                                 break;
                             }
 
-                            printSubjects(subjects); // mostrar materias
+                            printSubjects(subjects); // show subjects
 
                             System.out.println("Enter the subjects codes one by one.");
 
@@ -142,12 +158,13 @@ public class ExampleMenu {
 
                                 System.out.println("1. Enter code");
                                 System.out.println("2. Exit");
+                                System.out.println("+++++++++++++");
                                 optionUser = scan.nextInt();
                                 scan.nextLine();
 
                                 switch (optionUser) {
                                     case 1:
-                                        // validación cuando se ingresa cada vez un elemento
+
                                         if (studentSubjects.size() >= 3) {
                                             System.out.println("A student may enroll in only three subjects");
                                             break;
@@ -157,7 +174,7 @@ public class ExampleMenu {
                                         code = scan.nextLine();
                                         Subject newSubject = null;
 
-                                        // validar si el code del subject existe antes de ingresar al array
+                                        // Check whether the subject's code exists before adding it to the array
                                         for (Subject subject1 : subjects)  {
                                             if (subject1.getCode().equals(code)) {
                                                 newSubject = subject1;
@@ -177,7 +194,7 @@ public class ExampleMenu {
                                         break;
 
                                     default:
-                                        student1.setSubjects(studentSubjects); // asignamos las materias al estudiante
+                                        student1.setSubjects(studentSubjects); // assign subjects to the student
                                         optionUser = -1;
                                         break;
                                 }
@@ -192,15 +209,23 @@ public class ExampleMenu {
                         System.out.println("There is no student with that name");
                     }
 
+                    pressEnter(continueKey);
+
                     break;
 
                 case 6:
                     option  = 6;
                     System.out.println("Enter the student's name:");
-                    String searchStudent = scan.nextLine();
+                    String searchName = scan.nextLine();
+
+                    System.out.println("Enter the student's lastname:");
+                    String searchLastName = scan.nextLine();
+
+                    Student searchStudent = null;
                     
                     for (Student s : students) {
-                        if (s.getName().contains(searchStudent)) {
+                        if (s.getName().contains(searchName) && s.getLastName().contains(searchLastName)) {
+                            searchStudent = s;
                             System.out.println("+++++++++++++");
                             System.out.println("The full name of the student is: " + s.getName() + " " + s.getLastName());
                             System.out.println("Career: " + s.getCareer());
@@ -211,10 +236,14 @@ public class ExampleMenu {
                                 System.out.println("student's registered subjects:");
                                 printSubjects(s.getSubjects());
                             }
-                        } else {
-                            System.out.println("Student not found");
                         }
                     }
+
+                    if (searchStudent == null) {
+                        System.out.println("There is no student with that name");
+                    }
+
+                    pressEnter(continueKey);
 
                     break;
 
@@ -234,6 +263,12 @@ public class ExampleMenu {
             System.out.println("+++++++++++++");
             System.out.println("The name of the subject is: " + s.getName());
             System.out.println("Code: " + s.getCode());
+            System.out.println("+++++++++++++");
         }
+    }
+
+    public static void pressEnter(Scanner continueKey) {
+        System.out.println("Press enter to continue");
+        continueKey.nextLine();
     }
 }
