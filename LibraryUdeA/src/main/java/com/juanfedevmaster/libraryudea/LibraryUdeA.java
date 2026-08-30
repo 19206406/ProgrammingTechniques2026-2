@@ -3,6 +3,7 @@
  */
 package com.juanfedevmaster.libraryudea;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 import library.models.Book;
 import library.models.Catalog;
@@ -53,6 +54,17 @@ public class LibraryUdeA {
                     break;
                 case 3:
                     // Show all books of the catalog.
+                    ArrayList<Book> books = catalog.getBooks();
+                    if (books.isEmpty()) {
+                        System.out.println("No hay libros registrados en el catálogo.");
+                    } else {
+                        for (Book b : books) {
+                            System.out.println("ISBN: " + b.getIsbn()
+                                    + " | Título: " + b.getTitle()
+                                    + " | Autor: " + b.getAuthor()
+                                    + " | Cantidad: " + b.getAmount());
+                        }
+                    }
                     break;
                 default:
                     option = 0;
