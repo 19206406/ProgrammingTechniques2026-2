@@ -25,7 +25,9 @@ public class LibraryUdeA {
         Scanner scan = new Scanner(System.in);
         Book searchBook = null;
 
-
+        catalog.registerBook("abc123", "Dance of dragons", "George R.R Martin", 150);
+        catalog.registerBook("bcd234", "Blood and fire", "George R.R Martin", 135);
+        catalog.registerBook("cdf345", "Tales of Dunk and Egg", "George R.R Martin", 127);
 
 
         do {
@@ -93,15 +95,20 @@ public class LibraryUdeA {
                     // Show all books of the catalog.
                     ArrayList<Book> books = catalog.getBooks();
                     if (books.isEmpty()) {
-                        System.out.println("No hay libros registrados en el catálogo.");
-                    } else {
-                        for (Book b : books) {
-                            System.out.println("ISBN: " + b.getIsbn()
-                                    + " | Título: " + b.getTitle()
-                                    + " | Autor: " + b.getAuthor()
-                                    + " | Cantidad: " + b.getAmount());
-                        }
+                        System.out.println("-----------------------------------------");
+                        System.out.println("There are no books listed in the catalog.");
+                        System.out.println("-----------------------------------------");
+                        break;
                     }
+
+                    for (Book b : books) {
+                        System.out.println("---------------------------------------------------------------------------------------------------");
+                        System.out.println("ISBN: " + b.getIsbn()
+                                + " | Título: " + b.getTitle()
+                                + " | Autor: " + b.getAuthor()
+                                + " | Cantidad: " + b.getAmount());
+                        }
+                        System.out.println("---------------------------------------------------------------------------------------------------");
                     break;
                 case 4:
                     option = 5;
@@ -128,8 +135,6 @@ public class LibraryUdeA {
                     searchBook = null;
 
                     break;
-
-
                 default:
                     option = 0;
             }
