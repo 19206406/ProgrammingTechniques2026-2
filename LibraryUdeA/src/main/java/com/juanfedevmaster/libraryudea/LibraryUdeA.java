@@ -24,7 +24,7 @@ public class LibraryUdeA {
         do {
             System.out.println("1. Register book");
             System.out.println("2. Buy a book");
-            System.out.println("3. Exit");
+            System.out.println("3. Show all books of the catalog.");
 
             System.out.println("Enter the option:");
             option = Integer.parseInt(scan.nextLine().trim());
