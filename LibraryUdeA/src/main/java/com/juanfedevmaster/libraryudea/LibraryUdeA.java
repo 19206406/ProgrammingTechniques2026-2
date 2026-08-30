@@ -3,6 +3,7 @@
  */
 package com.juanfedevmaster.libraryudea;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 import library.models.Book;
 import library.models.Catalog;
@@ -12,14 +13,13 @@ import library.models.ResultBook;
  * SEBASTIAN URREGO GRACIANO
  * JUAN DAVID ORTIZ DIAZ
  *
+ * @author juanfe
  */
 public class LibraryUdeA {
 
     public static void main(String[] args) {
 
         Catalog catalog = new Catalog();
-        catalog.registerBook("abc123", "Dance of dragons", "George R.R Martin", 150);
-        catalog.registerBook("bcd234", "Blood and fire", "George R.R Martin", 100);
 
         int option = 0;
         Scanner scan = new Scanner(System.in);
@@ -27,9 +27,11 @@ public class LibraryUdeA {
 
 
 
+
         do {
             System.out.println("1. Register book");
             System.out.println("2. Buy a book");
+            System.out.println("3. Show all books of the catalog.");
             System.out.println("4. Search for a book by ISBN");
             System.out.println("5. Exit");
 
@@ -89,6 +91,17 @@ public class LibraryUdeA {
                     break;
                 case 3:
                     // Show all books of the catalog.
+                    ArrayList<Book> books = catalog.getBooks();
+                    if (books.isEmpty()) {
+                        System.out.println("No hay libros registrados en el catálogo.");
+                    } else {
+                        for (Book b : books) {
+                            System.out.println("ISBN: " + b.getIsbn()
+                                    + " | Título: " + b.getTitle()
+                                    + " | Autor: " + b.getAuthor()
+                                    + " | Cantidad: " + b.getAmount());
+                        }
+                    }
                     break;
                 case 4:
                     option = 5;
@@ -115,6 +128,8 @@ public class LibraryUdeA {
                     searchBook = null;
 
                     break;
+
+
                 default:
                     option = 0;
             }
