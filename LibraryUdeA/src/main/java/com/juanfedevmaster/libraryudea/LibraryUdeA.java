@@ -25,10 +25,6 @@ public class LibraryUdeA {
         Scanner scan = new Scanner(System.in);
         Book searchBook = null;
 
-        catalog.registerBook("abc123", "Dance of dragons", "George R.R Martin", 150);
-        catalog.registerBook("bcd234", "Blood and fire", "George R.R Martin", 135);
-        catalog.registerBook("cdf345", "Tales of Dunk and Egg", "George R.R Martin", 127);
-
 
         do {
             System.out.println("1. Register book");
