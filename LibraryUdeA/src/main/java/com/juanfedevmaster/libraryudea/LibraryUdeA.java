@@ -23,7 +23,9 @@ public class LibraryUdeA {
 
         int option = 0;
         Scanner scan = new Scanner(System.in);
-        Book searchBook = null;
+
+        catalog.registerBook("abc123", "Dance of dragons", "George R.R Martin", 200);
+        catalog.registerBook("bcd234", "Blood and fire", "George R.R Martin", 369);
 
 
         do {
@@ -90,46 +92,15 @@ public class LibraryUdeA {
                 case 3:
                     // Show all books of the catalog.
                     ArrayList<Book> books = catalog.getBooks();
-                    if (books.isEmpty()) {
-                        System.out.println("-----------------------------------------");
-                        System.out.println("There are no books listed in the catalog.");
-                        System.out.println("-----------------------------------------");
-                        break;
-                    }
+                    catalog.showAllBooks(books);
 
-                    for (Book b : books) {
-                        System.out.println("---------------------------------------------------------------------------------------------------");
-                        System.out.println("ISBN: " + b.getIsbn()
-                                + " | Título: " + b.getTitle()
-                                + " | Autor: " + b.getAuthor()
-                                + " | Cantidad: " + b.getAmount());
-                        }
-                        System.out.println("---------------------------------------------------------------------------------------------------");
                     break;
                 case 4:
                     option = 5;
                     System.out.println("Enter the ISBN of the book you want to find");
                     String searchIsbn = scan.nextLine().trim();
 
-                    searchBook = catalog.findByIsbn(searchIsbn);
-
-                    if (searchBook == null) {
-                        System.out.println("--------------------------------------------------");
-                        System.out.println("There is no book with that ISBN. Please try again.");
-                        System.out.println("--------------------------------------------------");
-                        break;
-                    }
-
-                    System.out.println("--------------------------------------------------");
-                    System.out.println("Book found with the ISBN: " + searchBook.getIsbn());
-                    System.out.println("                                                   ");
-                    System.out.println("Book title: " + searchBook.getTitle());
-                    System.out.println("Author of the book: " + searchBook.getAuthor());
-                    System.out.println("Number of books available: " + searchBook.getAmount());
-                    System.out.println("--------------------------------------------------");
-
-                    searchBook = null;
-
+                    catalog.searchBook(searchIsbn);
                     break;
                 default:
                     option = 0;

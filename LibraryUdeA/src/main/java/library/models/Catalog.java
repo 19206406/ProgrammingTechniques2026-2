@@ -60,4 +60,39 @@ public class Catalog {
             return ResultBook.NOT_FOUND;
         }
     }
+
+    public void showAllBooks(ArrayList<Book> books) {
+        if (books.isEmpty()) {
+            System.out.println("-----------------------------------------");
+            System.out.println("There are no books listed in the catalog.");
+            System.out.println("-----------------------------------------");
+        } else {
+            for (Book b : books) {
+                System.out.println("---------------------------------------------------------------------------------------------------");
+                System.out.println("ISBN: " + b.getIsbn()
+                        + " | Título: " + b.getTitle()
+                        + " | Autor: " + b.getAuthor()
+                        + " | Cantidad: " + b.getAmount());
+            }
+            System.out.println("---------------------------------------------------------------------------------------------------");
+        }
+    }
+
+    public void searchBook(String isbn) {
+        Book searchBook = findByIsbn(isbn);
+
+        if (searchBook == null) {
+            System.out.println("--------------------------------------------------");
+            System.out.println("There is no book with that ISBN. Please try again.");
+            System.out.println("--------------------------------------------------");
+        } else {
+            System.out.println("--------------------------------------------------");
+            System.out.println("Book found with the ISBN: " + searchBook.getIsbn());
+            System.out.println("                                                   ");
+            System.out.println("Book title: " + searchBook.getTitle());
+            System.out.println("Author of the book: " + searchBook.getAuthor());
+            System.out.println("Number of books available: " + searchBook.getAmount());
+            System.out.println("--------------------------------------------------");
+        }
+    }
 }
