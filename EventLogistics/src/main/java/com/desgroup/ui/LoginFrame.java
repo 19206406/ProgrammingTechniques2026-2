@@ -2,25 +2,25 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package com.desgroup.views;
+package com.desgroup.ui;
 
-import com.desgroup.controllers.AuthenticateController;
+import com.desgroup.logic.AuthenticateService;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author urreg
  */
-public class Login extends javax.swing.JFrame {
+public class LoginFrame extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Login.class.getName());
-    private AuthenticateController controller; 
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(LoginFrame.class.getName());
+    private AuthenticateService controller; 
     
     
     /**
      * Creates new form Login
      */
-    public Login() {
+    public LoginFrame() {
         initComponents();
     }
 
@@ -69,7 +69,7 @@ public class Login extends javax.swing.JFrame {
                             .addComponent(txtEmail)
                             .addComponent(pwdPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)))
                     .addComponent(lblTitleLogin, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 313, Short.MAX_VALUE))
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addContainerGap(96, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -86,7 +86,7 @@ public class Login extends javax.swing.JFrame {
                     .addComponent(pwdPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE))
                 .addGap(29, 29, 29)
                 .addComponent(btnSubmit)
-                .addContainerGap(60, Short.MAX_VALUE))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
 
         pack();
@@ -140,7 +140,7 @@ public class Login extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new Login().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new LoginFrame().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
