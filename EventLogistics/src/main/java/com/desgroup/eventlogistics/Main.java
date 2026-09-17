@@ -4,6 +4,13 @@
  */
 package com.desgroup.eventlogistics;
 
+import com.desgroup.models.Coordinator;
+import com.desgroup.models.Event;
+import com.desgroup.models.EventAssignment;
+import com.desgroup.models.Logistic;
+import com.desgroup.models.Manager;
+import java.util.ArrayList;
+
 /**
  *
  * @author urreg
@@ -44,6 +51,16 @@ public class Main extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    // instancias de las clases principales aunque podríamos ver donde estaria mejor estas instancias. 
+    // estas nos permiten tener la información globalizada esta por ejemplo cuando creemos un logistico 
+    // se va a crear aquí. 
+    private ArrayList<Logistic> logistics = new ArrayList<>(); 
+    private ArrayList<Coordinator> coordinators = new ArrayList<>(); 
+    private ArrayList<Manager> managers = new ArrayList<>(); 
+    private ArrayList<Event> events = new ArrayList<>(); 
+    private ArrayList<EventAssignment> assignments = new ArrayList<>(); 
+    
     /**
      * @param args the command line arguments
      */
