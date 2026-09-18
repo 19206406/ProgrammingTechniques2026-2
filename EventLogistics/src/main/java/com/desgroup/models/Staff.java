@@ -9,13 +9,13 @@ package com.desgroup.models;
  * @author urreg
  */
 public class Staff {
-    private int idStaff; 
-    private String name; 
-    private String email; 
-    private int phone; 
-    private String position; 
-    private String password; 
-    private double salary; 
+    private int idStaff;
+    private String name;
+    private String email;
+    private int phone;
+    private String position;
+    private String password;
+    private double salary;
 
     public Staff(int id, String name, String email, int phone, String position, String password, double salary) {
         this.idStaff = id;
@@ -25,6 +25,14 @@ public class Staff {
         this.position = position;
         this.password = password;
         this.salary = salary;
+    }
+
+    public Staff(String name, String email, int phone, String position, String password) {
+        this.name = name;
+        this.email = email;
+        this.phone = phone;
+        this.position = position;
+        this.password = password;
     }
 
     public Staff() {

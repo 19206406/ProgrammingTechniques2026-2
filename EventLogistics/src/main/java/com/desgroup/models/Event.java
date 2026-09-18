@@ -11,11 +11,68 @@ import java.time.LocalDate;
  * @author urreg
  */
 public class Event {
-    private int idEvent; 
-    private String name; 
-    private String place; 
-    private String state; 
-    private LocalDate date; 
-    // no se si la necesitamos y mejor solo con la fecha. 
-    private int startTime; 
+    private int idEvent;
+    private String name;
+    private String place;
+    private String state;
+    private LocalDate date;
+    // no se si la necesitamos y mejor solo con la fecha.
+    private int startTime;
+
+    public Event(String name, String place, String state, LocalDate date, int startTime) {
+        this.name = name;
+        this.place = place;
+        this.state = state;
+        this.date = date;
+        this.startTime = startTime;
+    }
+
+    public int getIdEvent() {
+        return idEvent;
+    }
+
+    public void setIdEvent(int idEvent) {
+        this.idEvent = idEvent;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPlace() {
+        return place;
+    }
+
+    public void setPlace(String place) {
+        this.place = place;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+
+    public int getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(int startTime) {
+        this.startTime = startTime;
+    }
+
 }
