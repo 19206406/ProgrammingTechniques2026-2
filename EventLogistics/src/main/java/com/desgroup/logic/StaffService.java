@@ -6,6 +6,8 @@ import com.desgroup.models.Staff;
 import com.desgroup.repositories.StaffRepository;
 
 public class StaffService {
+    // debo de preguntar si esto se puede o como puedo consultar esta maricada
+    // osea como tengo los empleados completos ?
     private StaffRepository repository;
 
     public StaffService() {
@@ -13,17 +15,17 @@ public class StaffService {
     }
 
     public String showStaffPosition(int id) {
-        Staff staff = repository.getStaffById(id);
+        Staff staff = repository.getById(id);
         return staff.getPosition();
     }
 
     public double showStaffSalary(int id) {
-        Staff staff = repository.getStaffById(id);
+        Staff staff = repository.getById(id);
         return staff.getSalary();
     }
 
     public boolean staffLogin(String email, String password) {
-        List<Staff> staffs = repository.getAllStaff();
+        List<Staff> staffs = repository.getAll();
 
         boolean result = false;
 
@@ -34,6 +36,12 @@ public class StaffService {
         }
 
         return result;
+    }
+
+    public void changeStaffPassword(int id, String password) {
+        Staff staff = repository.getById(id);
+        staff.setPassword(password);
+
     }
 
     // no se si mostrar evento le corresponde a este servicio o incluso.

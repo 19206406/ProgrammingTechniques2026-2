@@ -4,20 +4,16 @@
  */
 package com.desgroup.models;
 
-import java.util.ArrayList;
-
 /**
  *
  * @author urreg
  */
 public class Coordinator extends Staff {
-    private String company; 
-    private ArrayList<Logistic> logistics; 
+    private String company;
 
-    public Coordinator(String company, ArrayList<Logistic> logistics, int id, String name, String email, int phone, String position, String password, double salary) {
-        super(id, name, email, phone, position, password, salary);
+    public Coordinator(String name, String email, int phone, String position, String password, String company) {
+        super(name, email, phone, position, password);
         this.company = company;
-        this.logistics = logistics;
     }
 
     public Coordinator() {
@@ -29,13 +25,5 @@ public class Coordinator extends Staff {
 
     public void setCompany(String company) {
         this.company = company;
-    }
-
-    public ArrayList<Logistic> getLogistics() {
-        return logistics;
-    }
-
-    public void setLogistics(ArrayList<Logistic> logistics) {
-        this.logistics = logistics;
     }
 }

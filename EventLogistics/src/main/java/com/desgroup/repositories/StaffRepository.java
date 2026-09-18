@@ -14,18 +14,16 @@ import java.util.List;
  */
 public class StaffRepository {
     private List<Staff> staffs;
-    private int staffId;
 
     public StaffRepository() {
         staffs = new ArrayList<>();
-        staffId = 1;
     }
 
-    public List<Staff> getAllStaff() {
+    public List<Staff> getAll() {
         return new ArrayList<>(staffs);
     }
 
-    public Staff getStaffById(int id) {
+    public Staff getById(int id) {
         for (Staff staff : staffs) {
             if (staff.getIdStaff() == id) {
                 return staff;
@@ -33,6 +31,10 @@ public class StaffRepository {
         }
 
         return null;
+    }
+
+    public void updated(Staff staff) {
+
     }
 
 }
