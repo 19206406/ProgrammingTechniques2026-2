@@ -9,10 +9,12 @@ public class EventRepository {
 
     private List<Event> events;
     private int nextId;
+    private int placeId;
 
     public EventRepository() {
         events = new ArrayList<>();
         nextId = 0;
+        placeId = 0;
     }
 
     public List<Event> getAll() {

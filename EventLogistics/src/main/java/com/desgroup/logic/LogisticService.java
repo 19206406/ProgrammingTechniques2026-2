@@ -36,4 +36,10 @@ public class LogisticService {
     public void deleteLogistic(int id) {
         repository.delete(id);
     }
+
+    public void recordHoursWorked(int id, int hours) {
+        Logistic searchLogistic = repository.getById(id);
+        searchLogistic.setWorkingHours(hours);
+        repository.updated(searchLogistic);
+    }
 }

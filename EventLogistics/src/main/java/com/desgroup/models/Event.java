@@ -13,13 +13,13 @@ import java.time.LocalDate;
 public class Event {
     private int idEvent;
     private String name;
-    private String place;
+    private Place place;
     private String state;
     private LocalDate date;
     // no se si la necesitamos y mejor solo con la fecha.
     private int startTime;
 
-    public Event(String name, String place, String state, LocalDate date, int startTime) {
+    public Event(String name, Place place, String state, LocalDate date, int startTime) {
         this.name = name;
         this.place = place;
         this.state = state;
@@ -43,11 +43,11 @@ public class Event {
         this.name = name;
     }
 
-    public String getPlace() {
+    public Place getPlace() {
         return place;
     }
 
-    public void setPlace(String place) {
+    public void setPlace(Place place) {
         this.place = place;
     }
 
