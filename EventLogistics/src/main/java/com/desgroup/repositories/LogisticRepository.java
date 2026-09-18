@@ -28,6 +28,15 @@ public class LogisticRepository {
         return null;
     }
 
+    public Logistic getByEmail(String email) {
+        for (Logistic logistic : logistics) {
+            if (logistic.getEmail().equals(email)) {
+                return logistic;
+            }
+        }
+        return null;
+    }
+
     public void create(Logistic logistic) {
         logistic.setIdStaff(nextId++); // agregar id antes de agregar
         logistics.add(logistic); // agregar

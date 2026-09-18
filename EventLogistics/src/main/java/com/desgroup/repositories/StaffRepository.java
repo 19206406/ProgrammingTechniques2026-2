@@ -13,14 +13,25 @@ import java.util.List;
  * @author urreg
  */
 public class StaffRepository {
+    private LogisticRepository logisticRepository;
+    private CoordinatorRepository coordinatorRepository;
+    private ManagerRepository managerRepository;
+
     private List<Staff> staffs;
 
     public StaffRepository() {
         staffs = new ArrayList<>();
+        logisticRepository = new LogisticRepository();
+        coordinatorRepository = new CoordinatorRepository();
+        managerRepository = new ManagerRepository();
     }
 
     public List<Staff> getAll() {
-        return new ArrayList<>(staffs);
+        List<Staff> staffs = new ArrayList<>();
+        staffs.addAll(logisticRepository.getAll());
+        staffs.addAll(coordinatorRepository.getAll());
+        staffs.addAll(managerRepository.getAll());
+        return staffs;
     }
 
     public Staff getById(int id) {
@@ -33,8 +44,22 @@ public class StaffRepository {
         return null;
     }
 
-    public void updated(Staff staff) {
+    public Staff getStaffByEmail(String email) {
+        Staff found = logisticRepository.getByEmail(email);
 
+        if (found != null)
+            return found;
+
+        found = coordinatorRepository.getByEmail(email);
+
+        if (found != null)
+            return found;
+
+        return managerRepository.getByEmail(email);
+
+    }
+
+    public void updated(Staff staff) {
     }
 
 }

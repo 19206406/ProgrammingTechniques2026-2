@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.desgroup.models.Coordinator;
+import com.desgroup.models.Logistic;
 
 public class CoordinatorRepository {
 
@@ -26,6 +27,15 @@ public class CoordinatorRepository {
             }
         }
 
+        return null;
+    }
+
+    public Coordinator getByEmail(String email) {
+        for (Coordinator coordinator : coordinators) {
+            if (coordinator.getEmail().equals(email)) {
+                return coordinator;
+            }
+        }
         return null;
     }
 

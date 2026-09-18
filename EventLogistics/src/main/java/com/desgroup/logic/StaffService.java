@@ -1,13 +1,11 @@
 package com.desgroup.logic;
 
-import java.util.List;
-
 import com.desgroup.models.Staff;
 import com.desgroup.repositories.StaffRepository;
 
 public class StaffService {
     // debo de preguntar si esto se puede o como puedo consultar esta maricada
-    // osea como tengo los empleados completos ?
+    // osea como tengo los empleados completos para el inicio de sesión
     private StaffRepository repository;
 
     public StaffService() {
@@ -25,17 +23,13 @@ public class StaffService {
     }
 
     public boolean staffLogin(String email, String password) {
-        List<Staff> staffs = repository.getAll();
+        Staff staff = repository.getStaffByEmail(email);
 
-        boolean result = false;
-
-        for (Staff staff : staffs) {
-            if (staff.getEmail().equals(email) && staff.getPassword().equals(password)) {
-                result = true;
-            }
+        if (staff.getEmail().equals(email) && staff.getPassword().equals(password)) {
+            return true;
         }
 
-        return result;
+        return false;
     }
 
     public void changeStaffPassword(int id, String password) {
