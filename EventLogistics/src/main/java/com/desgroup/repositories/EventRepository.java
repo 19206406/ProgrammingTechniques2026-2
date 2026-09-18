@@ -33,6 +33,7 @@ public class EventRepository {
 
     public void create(Event event) {
         event.setIdEvent(nextId++); // agregar id antes de agregar
+        event.getPlace().setIdPlace(placeId++);
         events.add(event); // agregar
     }
 
