@@ -4,7 +4,7 @@
  */
 package com.desgroup.ui;
 
-import com.desgroup.logic.AuthenticateService;
+import com.desgroup.logic.StaffService;
 import javax.swing.JOptionPane;
 
 /**
@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
 public class LoginFrame extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(LoginFrame.class.getName());
-    private AuthenticateService controller; 
+    private StaffService controller;
     
     
     /**
@@ -99,7 +99,7 @@ public class LoginFrame extends javax.swing.JFrame {
         // creo que esto no se puede pero es para ejemplo. 
         String password = pwdPassword.getText(); 
         
-        boolean isSuccess = controller.userLogin(email, password); 
+        boolean isSuccess = controller.staffLogin(email, password); 
         
         if (isSuccess) {
             

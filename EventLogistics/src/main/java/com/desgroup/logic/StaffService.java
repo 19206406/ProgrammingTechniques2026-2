@@ -25,11 +25,12 @@ public class StaffService {
     public boolean staffLogin(String email, String password) {
         Staff staff = repository.getStaffByEmail(email);
 
-        if (staff.getEmail().equals(email) && staff.getPassword().equals(password)) {
+        if(staff.getEmail().equals(email) && staff.getPassword().equals(password)) {
             return true;
+        }else  {
+            return false;
         }
 
-        return false;
     }
 
     public void changeStaffPassword(int id, String password) {
