@@ -54,6 +54,16 @@ public class EventAssignmentRepository {
         }
     }
 
+    public boolean exists(int staffId, int eventId) {
+        for (EventAssignment assignment : assignments) {
+            if (assignment.getIdStaff() == staffId && assignment.getIdEvent() == eventId) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     public void delete(int id) {
         assignments.removeIf(l -> l.getIdAssignment() == id);
     }

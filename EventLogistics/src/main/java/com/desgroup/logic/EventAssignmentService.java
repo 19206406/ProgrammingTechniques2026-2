@@ -22,11 +22,21 @@ public class EventAssignmentService {
     }
 
     public void createAssignment(int idStaff, int idEvent) {
+
+        // si existe una asignación con este id no debería poder
+        // crear otro
+        if (repository.exists(idStaff, idEvent))
+            return;
+
         EventAssignment newAssignment = new EventAssignment(idStaff, idEvent);
         repository.create(newAssignment);
     }
 
     public void deleteAssignment(int id) {
         repository.delete(id);
+    }
+
+    public List<EventAssignment> getAssignmentsByStaffId(int staffId) {
+        return repository.getAllByStaff(staffId);
     }
 }

@@ -3,8 +3,6 @@ package com.desgroup.repositories;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.desgroup.models.Coordinator;
-import com.desgroup.models.Logistic;
 import com.desgroup.models.Manager;
 
 public class ManagerRepository {

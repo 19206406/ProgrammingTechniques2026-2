@@ -1,6 +1,7 @@
 package com.desgroup.logic;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.desgroup.models.Event;
@@ -39,4 +40,15 @@ public class EventService {
         repository.updated(event);
     }
 
+    // lista de ids de eventos y trae la información de estos para mostrar por
+    // ejemplo asignaciones de una persona
+    public List<Event> getEventsByArrayIds(List<Integer> ids) {
+        List<Event> events = new ArrayList<>();
+
+        for (int id : ids) {
+            events.add(repository.getById(id));
+        }
+
+        return events;
+    }
 }

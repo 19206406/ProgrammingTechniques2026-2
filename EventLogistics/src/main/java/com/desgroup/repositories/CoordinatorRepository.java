@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.desgroup.models.Coordinator;
-import com.desgroup.models.Logistic;
 
 public class CoordinatorRepository {
 
