@@ -9,12 +9,14 @@ package com.desgroup.models;
  * @author urreg
  */
 public class EventAssignment {
-    private int idAssignment; 
-    private int idStaff; 
-    private int idEvent; 
+    private int idAssignment;
+    private int idStaff;
+    private int idEvent;
 
-    public EventAssignment(int idAssignment, int idStaff, int idEvent) {
-        this.idAssignment = idAssignment;
+    public EventAssignment() {
+    }
+
+    public EventAssignment(int idStaff, int idEvent) {
         this.idStaff = idStaff;
         this.idEvent = idEvent;
     }
@@ -42,6 +44,5 @@ public class EventAssignment {
     public void setIdEvent(int idEvent) {
         this.idEvent = idEvent;
     }
-    
-    
+
 }

@@ -3,7 +3,6 @@ package com.desgroup.repositories;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.desgroup.models.Event;
 import com.desgroup.models.EventAssignment;
 
 public class EventAssignmentRepository {
@@ -42,7 +41,7 @@ public class EventAssignmentRepository {
     }
 
     public void create(EventAssignment assignment) {
-        assignment.setIdEvent(nextId++); // agregar id antes de agregar
+        assignment.setIdAssignment(nextId++); // agregar id antes de agregar
         assignments.add(assignment); // agregar
     }
 
